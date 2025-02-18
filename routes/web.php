@@ -1,7 +1,14 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ExperienceController;
+
+
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+Route::get('/experiences', [ExperienceController::class, 'index'])->name('experiences.index');
 
 Route::get('/', function () {
     return view('welcome');
