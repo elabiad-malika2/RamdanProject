@@ -10,6 +10,6 @@ class ExperienceController extends Controller
 {
     public function index(){
         $experiences = Experience::all();
-        return view('experiences.index', compact('experiences'));
+        return view('experiences.home', compact('experiences'));
     }
 }

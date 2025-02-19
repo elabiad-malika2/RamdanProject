@@ -7,8 +7,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ExperienceController;
 
 
-Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
-Route::get('/experiences', [ExperienceController::class, 'index'])->name('experiences.index');
+Route::get('/test', [CategoryController::class, 'index'])->name('categories.index');
+Route::get('/experiences', [ExperienceController::class, 'index'])->name('experiences.home');
 
 Route::get('/', function () {
     return view('welcome');
