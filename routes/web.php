@@ -12,6 +12,9 @@ use App\Http\Controllers\CommentController;
 Route::post('/recettes/{recipe}/comment', [CommentController::class, 'store'])->name('comments.store');
 Route::get('/test', [CategoryController::class, 'index'])->name('categories.index');
 Route::get('/experiences', [ExperienceController::class, 'index'])->name('experiences.home');
+Route::post('/experiences', [ExperienceController::class, 'store'])->name('experiences.store');
+Route::post('/experiences/{experience_id}/comments', [ExperienceController::class, 'storeComment'])->name('experiences.storeComment');
+
 
 Route::get('/recettes', [RecipeController::class, 'index'])->name('recettes.index');
 Route::post('/recettes', [RecipeController::class, 'store'])->name('recettes.store');
