@@ -9,12 +9,24 @@ use App\Models\Comment;
 
 class RecipeController extends Controller
 {
-    public function index()
+    
+        public function index()
     {
         $recettes = Recipe::with(['category', 'comments'])->get();
+
+        $totalRecettes = $recettes->count();
+
+        $recettesPopulaires = Recipe::withCount('comments') 
+            ->orderBy('comments_count', 'desc') 
+            ->limit(3) 
+            ->get();
+
         $categories = Category::all();
-        return view('recettes.index', compact('recettes', 'categories'));
+
+        // Passer toutes les données à la vue
+        return view('recettes.index', compact('recettes', 'categories', 'totalRecettes', 'recettesPopulaires'));
     }
+    
 
     public function store(Request $request)
     {

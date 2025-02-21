@@ -11,6 +11,18 @@
             </button>
         </div>
     </div>
+    <!-- Statistiques -->
+    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+        <h2 class="text-2xl font-bold text-emerald-800 mb-4">Statistiques</h2>
+        <p class="text-lg">Nombre total de recettes : <span class="font-semibold">{{ $totalRecettes }}</span></p>
+
+        <h3 class="text-xl font-bold mt-4">Recettes les plus populaires :</h3>
+        <ul class="list-disc pl-5">
+            @foreach ($recettesPopulaires as $recette)
+                <li>{{ $recette->title }} ({{ $recette->comments_count }} commentaires)</li>
+            @endforeach
+        </ul>
+    </div>
 
     @if(session('success'))
         <div class="bg-green-100 text-green-800 p-3 rounded mb-4">
