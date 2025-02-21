@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Recipe extends Model
 {
-    use HasFactory;
     protected $fillable = ['category_id', 'title', 'description', 'image'];
 
 
@@ -15,7 +14,7 @@ class Recipe extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function comment()
+    public function comments()
     {
         return $this->hasMany(Comment::class);
     }
